@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>lesbian.xxx</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f0ede6;
+    --paper2: #e5e1d8;
+    --accent: #ff3d00;
+    --accent2: #ffd200;
+    --code: #1a3a1a;
+    --grid: rgba(0,0,0,0.06);
+    --border: #0a0a0a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+    selection: none;
+  }
+
+  ::selection { background: var(--accent2); color: var(--ink); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: var(--ink); }
+
+  /* ─── HEADER ─── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    border-bottom: 3px solid var(--accent);
+    padding: 0;
+  }
+
+  .header-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .logo-block {
+    padding: 14px 16px 14px 0;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+  }
+
+  .logo-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .logo-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .logo-title span { color: var(--accent); }
+
+  .header-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0 0 16px;
+    gap: 4px;
+  }
+
+  .meta-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .meta-tag strong { color: var(--accent2); font-weight: 700; }
+
+  /* ─── SEARCH ─── */
+  .search-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .search-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 12px 12px 12px 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .search-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-left: 2px solid rgba(255,255,255,0.12);
+    padding: 12px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #fff;
+    outline: none;
+    caret-color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  .search-row input::placeholder { color: rgba(255,255,255,0.25); }
+  .search-row input:focus { border-left-color: var(--accent); }
+
+  .search-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    padding: 0 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* ─── CATEGORY STRIP ─── */
+  .cat-strip {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: none;
+    scrollbar-width: none;
+  }
+  .cat-strip::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.1s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .cat-btn:hover { color: #fff; }
+
+  .cat-btn.active {
+    color: var(--ink);
+    background: var(--accent2);
+  }
+
+  /* ─── MAIN ─── */
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px 16px 100px;
+  }
+
+  /* ─── SECTION DIVIDERS ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 12px;
+  }
+
+  .section-header:first-child { margin-top: 0; }
+
+  .section-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--accent2);
+    padding: 2px 8px;
+    flex-shrink: 0;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+    opacity: 0.15;
+  }
+
+  .section-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: rgba(0,0,0,0.3);
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── CARDS ─── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .card {
+    background: var(--paper2);
+    border: 2px solid var(--ink);
+    border-top: none;
+    position: relative;
+    transition: transform 0.1s;
+  }
+
+  .cards-grid .card:first-child { border-top: 2px solid var(--ink); }
+  .card:active { transform: scale(0.995); }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: transparent;
+    transition: background 0.15s;
+  }
+
+  .card:hover::before { background: var(--accent); }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+  }
+
+  .card-title-block { display: flex; align-items: baseline; gap: 10px; }
+
+  .card-index {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .card-actions { display: flex; gap: 0; }
+
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: transparent;
+    cursor: pointer;
+    color: rgba(0,0,0,0.4);
+    transition: all 0.1s;
+    margin-left: -1px;
+  }
+
+  .btn-icon:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-icon svg { width: 14px; height: 14px; }
+
+  .card-body { padding: 10px 12px; }
+
+  .code-wrapper {
+    position: relative;
+  }
+
+  pre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: var(--code);
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 10px 12px;
+    padding-right: 60px;
+    overflow-x: auto;
+    white-space: pre;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-copy {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s;
+    z-index: 2;
+    pointer-events: all;
+  }
+
+  .btn-copy:hover { background: var(--accent); }
+  .btn-copy.copied { background: #1a6b1a; color: #fff; }
+
+  /* ─── EMPTY STATE ─── */
+  #emptyState {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  #emptyState.show { display: flex; }
+
+  .empty-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(0,0,0,0.25);
+    letter-spacing: 0.1em;
+    margin-top: 8px;
+  }
+
+  /* ─── MODAL ─── */
+  #editModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  #editModal.open { display: flex; }
+
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(2px);
+  }
+
+  .modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    background: var(--ink);
+    border-top: 4px solid var(--accent);
+    animation: slideUp 0.2s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .modal-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .modal-title span { color: var(--accent); }
+
+  .modal-close {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s;
+  }
+
+  .modal-close:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .modal-close svg { width: 16px; height: 16px; }
+
+  .modal-body { padding: 16px; }
+
+  .field-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .modal-body textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0;
+    padding: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #b4ffb4;
+    line-height: 1.65;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.1s;
+    letter-spacing: 0.02em;
+  }
+
+  .modal-body textarea:focus { border-color: var(--accent); }
+
+  .modal-footer {
+    display: flex;
+    gap: 0;
+    padding: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .btn-save {
+    flex: 1;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: filter 0.1s;
+  }
+
+  .btn-save:hover { filter: brightness(1.15); }
+
+  .btn-cancel {
+    flex: 0 0 auto;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-left: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.1s;
+  }
+
+  .btn-cancel:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+  /* ─── BENCHMARK STYLES ─── */
+  .bench-tab { border-left: 2px solid rgba(255,210,0,0.3); }
+  .bench-tab.active { background: var(--accent2); color: var(--ink); }
+
+  .bench-section-header {}
+  .bench-section-name {
+    background: var(--ink) !important;
+    color: var(--accent2) !important;
+    border: 1px solid var(--accent2);
+  }
+
+  .card-bench {
+    background: #f5f2e8;
+    border-color: #555;
+  }
+
+  .card-bench::before { background: transparent; }
+  .card-bench:hover::before { background: var(--accent2); }
+
+  .card-bench .card-header {
+    background: rgba(0,0,0,0.04);
+    border-bottom-color: rgba(0,0,0,0.1);
+  }
+
+  .bench-index { color: #b8860b !important; }
+
+  .bench-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    background: var(--accent2);
+    color: var(--ink);
+    border-radius: 0;
+    flex-shrink: 0;
+  }
+
+  .card-bench pre {
+    background: #1a1a0a;
+    color: #d4c84a;
+    border-color: rgba(255,210,0,0.15);
+  }
+
+  .btn-copy-bench {
+    background: #333300 !important;
+    color: var(--accent2) !important;
+  }
+
+  .btn-copy-bench:hover { background: #b8860b !important; color: #fff !important; }
+  .btn-copy-bench.copied { background: #1a6b1a !important; color: #fff !important; }
+
+  /* ─── TOAST ─── */
+  #toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--ink);
+    color: var(--accent2);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-top: 3px solid var(--accent2);
+    z-index: 300;
+    transition: transform 0.25s ease;
+    white-space: nowrap;
+  }
+
+  #toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ─── SYNC STATUS ─── */
+  #syncStatus { display:flex;align-items:center;gap:6px;padding:0 0 0 12px;margin-left:auto;flex-shrink:0; }
+  .sync-dot { width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0;transition:background 0.3s; }
+  .sync-dot.syncing { background:var(--accent2);animation:pulse 1s infinite; }
+  .sync-dot.synced  { background:#4ade80; }
+  .sync-dot.error   { background:var(--accent); }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+  .sync-label { font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap; }
+
+  /* ─── LOADING OVERLAY ─── */
+  #loadingOverlay { position:fixed;inset:0;z-index:500;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity 0.4s; }
+  #loadingOverlay.hidden { opacity:0;pointer-events:none; }
+  .loading-title { font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#fff;letter-spacing:0.08em;text-transform:uppercase; }
+  .loading-title span { color:var(--accent); }
+  .loading-bar { width:160px;height:2px;background:rgba(255,255,255,0.1);position:relative;overflow:hidden; }
+  .loading-bar::after { content:'';position:absolute;top:0;left:-60%;width:60%;height:100%;background:var(--accent2);animation:slide 1s ease-in-out infinite; }
+  @keyframes slide { to{left:120%;} }
+  .loading-sub { font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.15em;text-transform:uppercase; }
+
+  /* ─── BOTTOM NAV ─── */
+  .bottom-nav {
+    position:fixed;bottom:0;left:0;right:0;z-index:150;
+    background:var(--ink);border-top:2px solid var(--accent);
+    display:flex;
+  }
+  .bottom-nav-inner { display:flex;width:100%;max-width:640px;margin:0 auto; }
+  .nav-btn {
+    flex:1;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:3px;padding:10px 8px;
+    background:transparent;border:none;cursor:pointer;
+    border-right:1px solid rgba(255,255,255,0.07);transition:background 0.15s;
+  }
+  .nav-btn:last-child{border-right:none;}
+  .nav-btn.active{background:rgba(255,210,0,0.1);}
+  .nav-btn svg{width:18px;height:18px;color:rgba(255,255,255,0.3);transition:color 0.15s;}
+  .nav-btn.active svg{color:var(--accent2);}
+  .nav-btn span{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);transition:color 0.15s;}
+  .nav-btn.active span{color:var(--accent2);}
+
+  /* ─── PAGES ─── */
+  #repoPage{}
+  #repoPage.hidden{display:none;}
+  #guidePage{display:none;max-width:640px;margin:0 auto;padding:20px 16px 100px;}
+  #guidePage.active{display:block;}
+
+  /* ─── GUIDE HERO ─── */
+  .guide-hero{background:var(--ink);color:#fff;padding:20px 16px;margin-bottom:20px;border-left:4px solid var(--accent2);position:relative;overflow:hidden;}
+  .guide-hero::after{content:'ISE';position:absolute;right:-10px;top:-10px;font-family:'Barlow Condensed',sans-serif;font-size:80px;font-weight:900;color:rgba(255,255,255,0.04);pointer-events:none;}
+  .guide-hero-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:6px;}
+  .guide-hero-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;letter-spacing:0.04em;line-height:1.1;}
+  .guide-hero-title span{color:var(--accent2);}
+  .guide-hero-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6;}
+
+  /* ─── GUIDE SECTIONS ─── */
+  .guide-section{margin-bottom:28px;}
+  .guide-section-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;display:inline-block;padding:3px 10px;margin-bottom:12px;background:var(--accent);color:#fff;}
+  .guide-section-title.yellow{background:var(--accent2);color:var(--ink);}
+  .guide-section-title.dark{background:var(--ink);color:var(--accent2);border:1px solid var(--accent2);}
+
+  /* ─── STEPS ─── */
+  .step-list{display:flex;flex-direction:column;gap:0;}
+  .step{background:var(--paper2);border:2px solid var(--ink);border-top:none;display:flex;position:relative;}
+  .step:first-child{border-top:2px solid var(--ink);}
+  .step-num{background:var(--ink);color:var(--accent2);font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;min-width:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .step-content{padding:10px 12px;flex:1;}
+  .step-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink);margin-bottom:3px;}
+  .step-desc{font-family:'Barlow',sans-serif;font-size:12px;color:rgba(0,0,0,0.6);line-height:1.55;}
+  .step-desc strong{color:var(--ink);font-weight:600;}
+  .step-desc code{font-family:'IBM Plex Mono',monospace;font-size:11px;background:rgba(0,0,0,0.07);padding:1px 5px;color:var(--code);}
+
+  /* ─── BOXES ─── */
+  .tip-box{border-left:3px solid var(--accent2);background:rgba(255,210,0,0.08);padding:10px 12px;margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(0,0,0,0.6);line-height:1.6;}
+  .tip-box strong{color:var(--ink);}
+  .warn-box{border-left:3px solid var(--accent);background:rgba(255,61,0,0.06);padding:10px 12px;margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(0,0,0,0.6);line-height:1.6;}
+  .warn-box strong{color:var(--accent);}
+  .path-display{background:var(--ink);color:var(--accent2);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:8px 12px;margin:6px 0 0;letter-spacing:0.03em;border-left:3px solid var(--accent2);}
+  .path-display span{color:rgba(255,255,255,0.4);}
+
+  /* ─── FLOW ─── */
+  .flow{display:flex;flex-direction:column;gap:0;align-items:stretch;margin:8px 0;}
+  .flow-item{background:var(--ink);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:9px 14px;display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.07);}
+  .flow-item:first-child{border-top:none;}
+  .flow-item.yellow{background:var(--accent2);color:var(--ink);}
+  .flow-item.red{background:var(--accent);}
+  .flow-item.green{background:#1a6b1a;}
+  .flow-arrow{text-align:center;font-size:14px;color:rgba(0,0,0,0.2);padding:1px 0;line-height:1;}
+  .flow-num{font-family:'IBM Plex Mono',monospace;font-size:9px;background:rgba(255,255,255,0.12);padding:2px 6px;flex-shrink:0;}
+  .flow-item.yellow .flow-num{background:rgba(0,0,0,0.12);}
+
+  /* ─── QUICK TABLE ─── */
+  .quick-table{width:100%;border-collapse:collapse;margin-top:4px;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:var(--ink);padding:8px 10px;text-align:left;border-right:1px solid rgba(255,255,255,0.1);}
+  .quick-table td{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:7px 10px;border:1px solid rgba(0,0,0,0.1);background:var(--paper2);color:var(--ink);vertical-align:top;}
+  .quick-table tr:nth-child(even) td{background:#e8e4dc;}
+  .quick-table td:first-child{color:var(--accent);font-weight:700;}
+
+  /* ─── EXEC PAGE ─── */
+  #execPage{display:none;max-width:640px;margin:0 auto;padding:0 0 100px;}
+  #execPage.active{display:block;}
+
+  .exec-hero{background:var(--ink);padding:18px 16px;border-left:4px solid var(--accent);position:relative;overflow:hidden;}
+  .exec-hero::after{content:'EXEC';position:absolute;right:-8px;top:-8px;font-family:'Barlow Condensed',sans-serif;font-size:72px;font-weight:900;color:rgba(255,255,255,0.03);pointer-events:none;letter-spacing:-2px;}
+  .exec-hero-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;color:var(--accent2);letter-spacing:0.2em;text-transform:uppercase;display:block;margin-bottom:5px;}
+  .exec-hero-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;text-transform:uppercase;letter-spacing:0.04em;color:#fff;line-height:1.1;}
+  .exec-hero-title span{color:var(--accent);}
+  .exec-hero-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.35);margin-top:7px;line-height:1.5;}
+
+  /* module selector tabs */
+  .mod-tabs{display:flex;overflow-x:auto;background:rgba(0,0,0,0.6);scrollbar-width:none;border-bottom:2px solid rgba(255,255,255,0.06);}
+  .mod-tabs::-webkit-scrollbar{display:none;}
+  .mod-tab{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);padding:9px 14px;border:none;background:transparent;cursor:pointer;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.05);transition:all 0.12s;flex-shrink:0;}
+  .mod-tab:hover{color:#fff;background:rgba(255,255,255,0.05);}
+  .mod-tab.active{color:var(--ink);background:var(--accent2);}
+
+  /* group label */
+  .mod-group-label{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);padding:6px 14px 4px;background:rgba(0,0,0,0.55);}
+
+  /* exec card */
+  .exec-card{display:none;padding:16px;}
+  .exec-card.active{display:block;}
+
+  .exec-card-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+  .exec-badge{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:3px 8px;background:var(--accent2);color:var(--ink);flex-shrink:0;}
+  .exec-badge.seq{background:var(--ink);color:var(--accent2);}
+
+  /* truth table */
+  .tt-wrap{margin:10px 0 14px;}
+  .tt-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,0,0,0.4);margin-bottom:5px;}
+  .tt{width:100%;border-collapse:collapse;}
+  .tt th{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;background:var(--ink);color:var(--accent2);padding:6px 10px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
+  .tt td{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:6px 10px;text-align:center;border:1px solid rgba(0,0,0,0.1);background:var(--paper2);color:var(--ink);}
+  .tt tr:nth-child(even) td{background:#e8e4dc;}
+  .tt td.hi{color:#1a6b1a;font-weight:700;}
+  .tt td.lo{color:rgba(0,0,0,0.35);}
+  .tt td.out{font-weight:700;background:#fffbe6;color:var(--ink);}
+  .tt tr:nth-child(even) td.out{background:#f5f0d0;}
+
+  /* exec steps */
+  .exec-steps{display:flex;flex-direction:column;gap:0;}
+  .exec-step{display:flex;border:2px solid var(--ink);border-top:none;}
+  .exec-step:first-child{border-top:2px solid var(--ink);}
+  .exec-step-num{min-width:32px;background:var(--ink);color:var(--accent2);font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .exec-step-body{padding:9px 11px;flex:1;background:var(--paper2);}
+  .exec-step-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink);margin-bottom:2px;}
+  .exec-step-desc{font-family:'Barlow',sans-serif;font-size:12px;color:rgba(0,0,0,0.6);line-height:1.5;}
+  .exec-step-desc strong{color:var(--ink);font-weight:600;}
+  .exec-step-desc code{font-family:'IBM Plex Mono',monospace;font-size:10px;background:rgba(0,0,0,0.08);padding:1px 4px;color:var(--code);}
+  .exec-step-cmd{font-family:'IBM Plex Mono',monospace;font-size:10px;background:var(--ink);color:var(--accent2);padding:5px 9px;margin:5px 0 0;display:block;letter-spacing:0.05em;border-left:3px solid var(--accent2);}
+  .exec-live-code{font-family:'IBM Plex Mono',monospace;font-size:10px;background:var(--ink);color:var(--accent2);padding:8px 10px;margin:6px 0 0;border-left:3px solid var(--accent2);white-space:pre-wrap;word-break:break-all;line-height:1.6;overflow-x:auto;position:relative;}
+  .exec-live-code::before{content:'// live code — updates when you edit in Repo tab';display:block;font-size:8px;color:rgba(255,210,0,0.35);letter-spacing:0.1em;margin-bottom:5px;text-transform:uppercase;}
+  .exec-live-code.updated{animation:codeFlash 0.6s ease;}
+  @keyframes codeFlash{0%{background:#1a3a1a;}100%{background:var(--ink);}}
+  .exec-note{border-left:3px solid var(--accent2);background:rgba(255,210,0,0.07);padding:7px 10px;margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(0,0,0,0.55);line-height:1.5;}
+  .exec-note strong{color:var(--ink);}
+  .exec-warn{border-left:3px solid var(--accent);background:rgba(255,61,0,0.05);padding:7px 10px;margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(0,0,0,0.55);line-height:1.5;}
+  .exec-warn strong{color:var(--accent);}
+
+  /* expected output box */
+  .expected-box{background:var(--ink);padding:10px 12px;margin:12px 0 0;}
+  .expected-label{font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:5px;}
+  .expected-line{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.55);line-height:1.7;}
+  .expected-line span{color:#4ade80;}
+  .expected-line em{color:var(--accent2);font-style:normal;}
+</style>
+<!-- Supabase JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay">
+  <div class="loading-title">Lesbian<span>.xxx</span></div>
+  <div class="loading-bar"></div>
+  <div class="loading-sub">// connecting to supabase...</div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo-block">
+        <span class="logo-label">// HDL Repo</span>
+        <div class="logo-title">Lesbian<span>.xxx</span></div>
+      </div>
+      <div class="header-meta">
+        <div class="meta-tag">VER <strong>1.0</strong> &nbsp;·&nbsp; MOBILE</div>
+        <div class="meta-tag" id="expCount">—</div>
+      </div>
+      <div id="syncStatus">
+        <div class="sync-dot syncing" id="syncDot"></div>
+        <span class="sync-label" id="syncLabel">sync</span>
+      </div>
+    </div>
+    <div class="search-row">
+      <span class="search-label">⌕ SRCH</span>
+      <input id="searchInput" type="text" placeholder="module, gate, adder..."/>
+      <span class="search-count" id="searchCount"></span>
+    </div>
+    <div class="cat-strip" id="catStrip"></div>
+  </div>
+</header>
+
+<div id="repoPage">
+<main>
+  <div id="experimentsGrid"></div>
+  <div id="emptyState">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="1.5">
+      <path d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="empty-code">// NO_MATCH_FOUND</div>
+  </div>
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  XILINX ISE GUIDE PAGE                                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="guidePage">
+
+  <!-- Hero -->
+  <div class="guide-hero">
+    <span class="guide-hero-label">// step-by-step reference</span>
+    <div class="guide-hero-title">Xilinx <span>ISE</span> Design Suite</div>
+    <div class="guide-hero-sub">Complete execution guide for Logic Gates &amp; Testbenches.<br>Version: ISE 14.7 · Platform: Windows</div>
+  </div>
+
+  <!-- ── WORKFLOW OVERVIEW ── -->
+  <div class="guide-section">
+    <div class="guide-section-title yellow">⚡ Full Workflow</div>
+    <div class="flow">
+      <div class="flow-item yellow"><span class="flow-num">01</span> Create New Project</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item"><span class="flow-num">02</span> Add Verilog Source File</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item"><span class="flow-num">03</span> Write / Paste HDL Code</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item yellow"><span class="flow-num">04</span> Synthesize Design</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item"><span class="flow-num">05</span> Add Testbench File</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item yellow"><span class="flow-num">06</span> Run Simulation (iSim)</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-item green"><span class="flow-num">07</span> View Waveform Output ✓</div>
+    </div>
+  </div>
+
+  <!-- ── PART 1: NEW PROJECT ── -->
+  <div class="guide-section">
+    <div class="guide-section-title">Part 1 — Create New Project</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Open ISE Design Suite</div>
+          <div class="step-desc">Launch <strong>ISE Project Navigator</strong> from the desktop or Start Menu. Wait for the splash screen to finish loading.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">New Project Wizard</div>
+          <div class="step-desc">Go to <strong>File → New Project</strong>. The New Project Wizard will open.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Set Project Name &amp; Location</div>
+          <div class="step-desc">Enter a <strong>Project Name</strong> (e.g. <code>and_gate_lab</code>). Set the <strong>Project Location</strong> to a folder on your PC. Select <strong>HDL</strong> as Top-level source type.</div>
+          <div class="path-display"><span>Location:</span> C:\xilinx_projects\and_gate_lab</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Device &amp; Family Settings</div>
+          <div class="step-desc">Set the following properties for the FPGA target:<br><br>
+            <strong>Family:</strong> Spartan6 (or your board)<br>
+            <strong>Device:</strong> XC6SLX9<br>
+            <strong>Package:</strong> TQG144<br>
+            <strong>Speed Grade:</strong> -2<br>
+            <strong>Simulator:</strong> ISim (VHDL/Verilog)<br>
+            <strong>Preferred Language:</strong> Verilog
+          </div>
+          <div class="tip-box"><strong>TIP:</strong> If you don't have a real board, any Spartan3/6 or Artix7 device works for simulation.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-title">Finish Wizard</div>
+          <div class="step-desc">Click <strong>Next</strong> → review the summary → click <strong>Finish</strong>. The Project Navigator workspace will open.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART 2: ADD VERILOG FILE ── -->
+  <div class="guide-section">
+    <div class="guide-section-title">Part 2 — Add Verilog Source</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Add New Source File</div>
+          <div class="step-desc">In the <strong>Design</strong> panel (left side), right-click on the project name → select <strong>New Source</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Select Verilog Module</div>
+          <div class="step-desc">In the New Source Wizard, select <strong>Verilog Module</strong>. Enter the file name matching your module (e.g. <code>and_gate.v</code>). Click <strong>Next</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Define Port Names (Optional)</div>
+          <div class="step-desc">You can define ports here, or skip and write them manually. Click <strong>Next → Finish</strong>.</div>
+          <div class="tip-box"><strong>TIP:</strong> It's faster to skip port definition here and paste full code directly from this app's COPY button.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Paste Your Verilog Code</div>
+          <div class="step-desc">The file opens in the ISE editor. <strong>Delete</strong> the auto-generated template. Go back to the <strong>Repo tab</strong> in this app, hit <strong>COPY</strong> on any gate, then <strong>paste</strong> it into the ISE editor (<code>Ctrl+V</code>). Save with <code>Ctrl+S</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART 3: SYNTHESIZE ── -->
+  <div class="guide-section">
+    <div class="guide-section-title yellow">Part 3 — Synthesize Design</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Select Implementation View</div>
+          <div class="step-desc">In the <strong>Design</strong> panel, make sure the dropdown at the top is set to <strong>Implementation</strong> (not Simulation).</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Run Synthesize — XST</div>
+          <div class="step-desc">In the <strong>Processes</strong> panel below the Design panel, double-click <strong>Synthesize — XST</strong>. A green tick ✓ means success. A red X means syntax errors in your code.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Check Console Output</div>
+          <div class="step-desc">The <strong>Console</strong> at the bottom shows synthesis messages. Look for: <code>Process "Synthesize - XST" completed successfully</code></div>
+          <div class="warn-box"><strong>ERROR FIX:</strong> If you see "unexpected token" errors, check your Verilog code for missing semicolons, wrong module names, or mismatched <code>begin/end</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART 4: TESTBENCH ── -->
+  <div class="guide-section">
+    <div class="guide-section-title dark">Part 4 — Add Testbench &amp; Simulate</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Add New Source — Verilog Test Fixture</div>
+          <div class="step-desc">Right-click project → <strong>New Source</strong> → select <strong>Verilog Test Fixture</strong>. Name it <code>tb_and_gate.v</code>. Click <strong>Next</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">Associate with Your Module</div>
+          <div class="step-desc">ISE will ask which module to associate the testbench with. Select your module (e.g. <code>and_gate</code>). Click <strong>Next → Finish</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Paste Testbench Code</div>
+          <div class="step-desc">Delete the auto-generated template. Go to the <strong>Benchmark tab</strong> in this app, hit <strong>COPY</strong> on the matching testbench (e.g. AND Gate TB), paste into the ISE editor. Save with <code>Ctrl+S</code>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Switch to Simulation View</div>
+          <div class="step-desc">In the <strong>Design</strong> panel dropdown, change from <strong>Implementation</strong> to <strong>Simulation</strong>. Your testbench file should now appear as the top module.</div>
+          <div class="tip-box"><strong>TIP:</strong> If the testbench doesn't appear, right-click it in the file list → <strong>Set as Top Module</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <div class="step-title">Run iSim Behavioral Simulation</div>
+          <div class="step-desc">In the <strong>Processes</strong> panel, expand <strong>iSim Simulator</strong> → double-click <strong>Simulate Behavioral Model</strong>. iSim window will open automatically.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-content">
+          <div class="step-title">View Waveform in iSim</div>
+          <div class="step-desc">In the iSim window:<br><br>
+            • Click <strong>Run All</strong> button (▶▶) to run the full simulation<br>
+            • Or type <code>run 100ns</code> in the console<br>
+            • The <strong>waveform panel</strong> shows signal values over time<br>
+            • Zoom with <code>Ctrl+Scroll</code> or the zoom toolbar
+          </div>
+          <div class="tip-box"><strong>TIP:</strong> Click the <strong>Zoom to Full View</strong> button (magnifier icon) to see all signals at once.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">07</div>
+        <div class="step-content">
+          <div class="step-title">Verify Output</div>
+          <div class="step-desc">Check waveform values match the truth table. For AND Gate: output <code>y</code> should be <code>1</code> only when both <code>a=1</code> AND <code>b=1</code>. All other combinations should output <code>0</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART 5: COMMON ERRORS ── -->
+  <div class="guide-section">
+    <div class="guide-section-title red" style="background:var(--accent);color:#fff;">Part 5 — Common Errors &amp; Fixes</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">!</div>
+        <div class="step-content">
+          <div class="step-title">ERROR: Module not found</div>
+          <div class="step-desc"><strong>Cause:</strong> Testbench module name doesn't match the design module name.<br><strong>Fix:</strong> Check that <code>and_gate uut(...)</code> in your TB matches the module name exactly in your source file.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">!</div>
+        <div class="step-content">
+          <div class="step-title">ERROR: Unexpected token / Syntax Error</div>
+          <div class="step-desc"><strong>Cause:</strong> Incorrect Verilog syntax — missing <code>;</code>, wrong keywords.<br><strong>Fix:</strong> Use the COPY button from this app — the code is verified and correct.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">!</div>
+        <div class="step-content">
+          <div class="step-title">iSim Shows Flat Line / No Signal</div>
+          <div class="step-desc"><strong>Cause:</strong> Simulation ran but signals aren't added to the waveform.<br><strong>Fix:</strong> In iSim, go to <strong>Default.wcfg</strong> panel → right-click signals → <strong>Add to Waveform</strong>. Then click Run All again.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">!</div>
+        <div class="step-content">
+          <div class="step-title">ERROR: File not in project</div>
+          <div class="step-desc"><strong>Cause:</strong> Verilog file saved outside project folder.<br><strong>Fix:</strong> Always save files inside your project directory. Or use <strong>Project → Add Source</strong> to manually add an existing file.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">!</div>
+        <div class="step-content">
+          <div class="step-title">Synthesis Passes but Simulation Fails</div>
+          <div class="step-desc"><strong>Cause:</strong> Testbench not set as top module in Simulation view.<br><strong>Fix:</strong> In Design panel → Simulation view → right-click the TB file → <strong>Set as Top Module</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PART 6: KEYBOARD SHORTCUTS ── -->
+  <div class="guide-section">
+    <div class="guide-section-title yellow">Part 6 — Keyboard Shortcuts</div>
+    <table class="quick-table">
+      <tr><th>Shortcut</th><th>Action</th></tr>
+      <tr><td>Ctrl+S</td><td>Save current file</td></tr>
+      <tr><td>Ctrl+Z</td><td>Undo</td></tr>
+      <tr><td>Ctrl+F</td><td>Find in file</td></tr>
+      <tr><td>F5</td><td>Re-run last process</td></tr>
+      <tr><td>Ctrl+Scroll</td><td>Zoom waveform in iSim</td></tr>
+      <tr><td>Ctrl+A</td><td>Select all (in editor)</td></tr>
+      <tr><td>F7</td><td>Check syntax</td></tr>
+      <tr><td>Double-click process</td><td>Run that process</td></tr>
+    </table>
+  </div>
+
+  <!-- ── PART 7: PROCESS MEANINGS ── -->
+  <div class="guide-section">
+    <div class="guide-section-title dark">Part 7 — Processes Explained</div>
+    <table class="quick-table">
+      <tr><th>Process Name</th><th>What It Does</th></tr>
+      <tr><td>Synthesize — XST</td><td>Converts Verilog code to gate-level netlist. First step after writing code.</td></tr>
+      <tr><td>Implement Design</td><td>Maps netlist to FPGA resources (for real hardware). Not needed for simulation.</td></tr>
+      <tr><td>Generate Prog. File</td><td>Creates .bit file to flash onto FPGA board.</td></tr>
+      <tr><td>Simulate Behavioral</td><td>Runs testbench before synthesis — fastest, uses your Verilog directly.</td></tr>
+      <tr><td>Simulate Post-Synth</td><td>Runs simulation after synthesis — checks synthesized netlist.</td></tr>
+      <tr><td>View RTL Schematic</td><td>Shows auto-generated circuit diagram of your design.</td></tr>
+      <tr><td>Check Syntax</td><td>Quick syntax check without full synthesis. Use this first.</td></tr>
+    </table>
+  </div>
+
+  <!-- ── PART 8: FILE TYPES ── -->
+  <div class="guide-section">
+    <div class="guide-section-title">Part 8 — File Types Reference</div>
+    <table class="quick-table">
+      <tr><th>Extension</th><th>Purpose</th></tr>
+      <tr><td>.v</td><td>Verilog source file — your module design</td></tr>
+      <tr><td>.v (TB)</td><td>Verilog testbench — simulation driver</td></tr>
+      <tr><td>.xise</td><td>ISE project file — opens the whole project</td></tr>
+      <tr><td>.vcd</td><td>Value Change Dump — waveform data file</td></tr>
+      <tr><td>.ngc</td><td>Synthesis output netlist</td></tr>
+      <tr><td>.bit</td><td>Bitstream file for FPGA programming</td></tr>
+      <tr><td>.wcfg</td><td>iSim waveform config — saved signal layout</td></tr>
+    </table>
+  </div>
+
+</div><!-- end #guidePage -->
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  EXECUTION GUIDE PAGE — All Gates & Flip-Flops             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="execPage">
+
+  <div class="exec-hero">
+    <span class="exec-hero-label">// xilinx ise 14.7 · per-module walkthrough</span>
+    <div class="exec-hero-title">Execution <span>Guide</span></div>
+    <div class="exec-hero-sub">Select any gate or flip-flop below.<br>Full ISE steps + truth table + expected waveform for each.</div>
+  </div>
+
+  <!-- Module selector -->
+  <div style="background:rgba(0,0,0,0.65);">
+    <div class="mod-group-label">── Logic Gates ──</div>
+    <div class="mod-tabs" id="modTabs">
+      <button class="mod-tab active" onclick="showExec('and')">AND</button>
+      <button class="mod-tab" onclick="showExec('or')">OR</button>
+      <button class="mod-tab" onclick="showExec('not')">NOT</button>
+      <button class="mod-tab" onclick="showExec('xor')">XOR</button>
+      <button class="mod-tab" onclick="showExec('nand')">NAND</button>
+      <button class="mod-tab" onclick="showExec('nor')">NOR</button>
+    </div>
+    <div class="mod-group-label">── Arithmetic ──</div>
+    <div class="mod-tabs">
+      <button class="mod-tab" onclick="showExec('half_adder')">Half Adder</button>
+      <button class="mod-tab" onclick="showExec('full_adder')">Full Adder</button>
+      <button class="mod-tab" onclick="showExec('half_sub')">Half Sub</button>
+      <button class="mod-tab" onclick="showExec('full_sub')">Full Sub</button>
+    </div>
+    <div class="mod-group-label">── Flip-Flops ──</div>
+    <div class="mod-tabs">
+      <button class="mod-tab" onclick="showExec('d_ff')">D FF</button>
+      <button class="mod-tab" onclick="showExec('jk_ff')">JK FF</button>
+      <button class="mod-tab" onclick="showExec('t_ff')">T FF</button>
+      <button class="mod-tab" onclick="showExec('sr_ff')">SR FF</button>
+    </div>
+  </div>
+
+  <!-- ═══ AND GATE ═══ -->
+  <div class="exec-card active" id="exec-and">
+    <div class="exec-card-title">AND Gate <span class="exec-badge">2-INPUT</span></div>
+    <div class="tt-wrap">
+      <div class="tt-label">// truth table</div>
+      <table class="tt">
+        <tr><th>A</th><th>B</th><th>Y = A·B</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out hi">1</td></tr>
+      </table>
+    </div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project</div><div class="exec-step-desc"><strong>File → New Project</strong> → Name: <code>and_gate_lab</code> → HDL → Verilog → Spartan6 family → Click Finish</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Add Verilog Source</div><div class="exec-step-desc">Right-click project → <strong>New Source</strong> → Verilog Module → Name: <code>and_gate.v</code> → Skip port definition → Finish</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Paste Design Code</div><div class="exec-step-desc">Delete auto-template. Go to <strong>Repo tab → AND Gate → COPY</strong>. Paste in editor. Save <code>Ctrl+S</code>.</div><pre class="exec-live-code" id="elc-and_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Check Syntax</div><div class="exec-step-desc">Processes panel → <strong>Check Syntax</strong> → Wait for green ✓</div><div class="exec-note"><strong>TIP:</strong> Fix any red errors before proceeding to synthesis.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">5</div><div class="exec-step-body"><div class="exec-step-title">Synthesize — XST</div><div class="exec-step-desc">Design panel → <strong>Implementation</strong> view → Processes → Double-click <strong>Synthesize — XST</strong></div><div class="exec-note"><strong>SUCCESS:</strong> "Process Synthesize - XST completed successfully"</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">6</div><div class="exec-step-body"><div class="exec-step-title">Add Testbench</div><div class="exec-step-desc">Right-click project → <strong>New Source</strong> → Verilog Test Fixture → Name: <code>tb_and_gate.v</code> → Associate with <code>and_gate</code> → Finish. Delete template. Go to <strong>Benchmark tab → AND Gate TB → COPY</strong> → Paste → Save.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">7</div><div class="exec-step-body"><div class="exec-step-title">Switch to Simulation View</div><div class="exec-step-desc">Design panel dropdown → change to <strong>Simulation</strong>. Right-click <code>tb_and_gate</code> → <strong>Set as Top Module</strong></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">8</div><div class="exec-step-body"><div class="exec-step-title">Run iSim Simulation</div><div class="exec-step-desc">Processes → <strong>iSim Simulator → Simulate Behavioral Model</strong> → iSim opens → Click <strong>Run All (▶▶)</strong></div><div class="exec-warn"><strong>IF FLAT LINE:</strong> In iSim → right-click signals in Objects panel → Add to Waveform → Run All again.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">9</div><div class="exec-step-body"><div class="exec-step-title">Verify Waveform</div><div class="exec-step-desc">Output <code>y</code> must be <strong>HIGH only at t=30ns</strong> (when A=1, B=1). All other periods LOW.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → y=<span>0</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → y=<span>0</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → y=<span>0</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ OR GATE ═══ -->
+  <div class="exec-card" id="exec-or">
+    <div class="exec-card-title">OR Gate <span class="exec-badge">2-INPUT</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>Y = A+B</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out hi">1</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project</div><div class="exec-step-desc"><strong>File → New Project</strong> → Name: <code>or_gate_lab</code> → HDL → Verilog → Finish</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Add Source & Paste Code</div><div class="exec-step-desc">New Source → Verilog Module → <code>or_gate.v</code> → Repo tab → <strong>OR Gate → COPY</strong> → Paste → <code>Ctrl+S</code></div><pre class="exec-live-code" id="elc-or_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize</div><div class="exec-step-desc">Implementation view → <strong>Synthesize — XST</strong> → Green tick ✓</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Add Testbench & Simulate</div><div class="exec-step-desc">New Source → Verilog Test Fixture → <code>tb_or_gate.v</code> → Benchmark tab → <strong>OR Gate TB → COPY</strong> → Paste → Simulation view → <strong>Simulate Behavioral Model</strong></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">5</div><div class="exec-step-body"><div class="exec-step-title">Verify Waveform</div><div class="exec-step-desc">Output <code>y</code> = LOW only at t=0ns (A=0,B=0). HIGH for all other combinations.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → y=<span>0</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ NOT GATE ═══ -->
+  <div class="exec-card" id="exec-not">
+    <div class="exec-card-title">NOT Gate <span class="exec-badge">INVERTER</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>Y = A'</th></tr>
+        <tr><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="out lo">0</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc"><strong>File → New Project</strong> → <code>not_gate_lab</code> → New Source → Verilog Module → <code>not_gate.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo tab → <strong>NOT Gate → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-not_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Add TB → Simulate</div><div class="exec-step-desc">Synthesize XST → New Test Fixture → <code>tb_not_gate.v</code> → Benchmark tab → <strong>NOT Gate TB → COPY</strong> → Simulate Behavioral Model</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify</div><div class="exec-step-desc">Output <code>y</code> must be <strong>INVERTED</strong> from <code>a</code> at every time step.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=10ns : a=<em>1</em> → y=<span>0 ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ XOR GATE ═══ -->
+  <div class="exec-card" id="exec-xor">
+    <div class="exec-card-title">XOR Gate <span class="exec-badge">EXCLUSIVE-OR</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>Y = A⊕B</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>xor_gate_lab</code> → New Source → <code>xor_gate.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>XOR Gate → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-xor_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → New Test Fixture → <code>tb_xor_gate.v</code> → Benchmark → <strong>XOR Gate TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify</div><div class="exec-step-desc">Output HIGH when inputs are <strong>DIFFERENT</strong>. LOW when inputs are same (00 or 11).</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → y=<span>0</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → y=<span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ NAND GATE ═══ -->
+  <div class="exec-card" id="exec-nand">
+    <div class="exec-card-title">NAND Gate <span class="exec-badge">UNIVERSAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>Y = (A·B)'</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>nand_gate_lab</code> → New Source → <code>nand_gate.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>NAND Gate → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-nand_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_nand_gate.v</code> → Benchmark → <strong>NAND Gate TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify</div><div class="exec-step-desc">Output <strong>LOW only when BOTH inputs are HIGH</strong> (t=30ns). All others HIGH — opposite of AND gate.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → y=<span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ NOR GATE ═══ -->
+  <div class="exec-card" id="exec-nor">
+    <div class="exec-card-title">NOR Gate <span class="exec-badge">UNIVERSAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>Y = (A+B)'</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>nor_gate_lab</code> → New Source → <code>nor_gate.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>NOR Gate → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-nor_gate"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_nor_gate.v</code> → Benchmark → <strong>NOR Gate TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify</div><div class="exec-step-desc">Output HIGH <strong>ONLY when both inputs are 0</strong> (t=0ns). LOW for all other combinations.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → y=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → y=<span>0</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → y=<span>0</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → y=<span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ HALF ADDER ═══ -->
+  <div class="exec-card" id="exec-half_adder">
+    <div class="exec-card-title">Half Adder <span class="exec-badge">ARITHMETIC</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>SUM</th><th>CARRY</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out hi">1</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td><td class="out hi">1</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>half_adder_lab</code> → New Source → <code>half_adder.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>Half Adder → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-half_adder"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize</div><div class="exec-step-desc">Implementation view → <strong>Synthesize — XST</strong> → Green tick ✓. Two outputs (sum, carry) will be visible in RTL schematic.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Add Testbench & Simulate</div><div class="exec-step-desc">Test Fixture → <code>tb_half_adder.v</code> → Benchmark → <strong>Half Adder TB → COPY</strong> → Simulate Behavioral Model</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">5</div><div class="exec-step-body"><div class="exec-step-title">Verify Both Outputs</div><div class="exec-step-desc">Monitor <strong>both</strong> <code>sum</code> and <code>carry</code> waveforms. Carry only goes HIGH at t=30ns (A=1,B=1).</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=0ns  : a=<em>0</em> b=<em>0</em> → sum=<span>0</span> carry=<span>0</span></div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → sum=<span style="color:#4ade80;font-weight:700;">1</span> carry=<span>0</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → sum=<span style="color:#4ade80;font-weight:700;">1</span> carry=<span>0</span></div>
+      <div class="expected-line">t=30ns : a=<em>1</em> b=<em>1</em> → sum=<span>0</span> carry=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ FULL ADDER ═══ -->
+  <div class="exec-card" id="exec-full_adder">
+    <div class="exec-card-title">Full Adder <span class="exec-badge">3-INPUT</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table (key rows)</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>CIN</th><th>SUM</th><th>COUT</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="lo">0</td><td class="out lo">0</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="hi">1</td><td class="out hi">1</td><td class="out hi">1</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>full_adder_lab</code> → New Source → <code>full_adder.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>Full Adder → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-full_adder"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">XST Synthesize → Test Fixture → <code>tb_full_adder.v</code> → Benchmark → <strong>Full Adder TB → COPY</strong>. Testbench covers all 8 input combinations (000–111).</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify 8 Combinations</div><div class="exec-step-desc">Waveform shows 8 × 10ns steps. Verify <code>cout</code> goes HIGH when 2 or more inputs are HIGH.</div><div class="exec-note"><strong>TIP:</strong> Use "Zoom to Full" in iSim toolbar to see all 8 steps at once.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// key expected outputs</div>
+      <div class="expected-line">{a,b,cin}=<em>000</em> → sum=<span>0</span> cout=<span>0</span></div>
+      <div class="expected-line">{a,b,cin}=<em>011</em> → sum=<span>0</span> cout=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">{a,b,cin}=<em>111</em> → sum=<span style="color:#4ade80;font-weight:700;">1</span> cout=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ HALF SUBTRACTOR ═══ -->
+  <div class="exec-card" id="exec-half_sub">
+    <div class="exec-card-title">Half Subtractor <span class="exec-badge">ARITHMETIC</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>DIFF</th><th>BORROW</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out hi">1</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>half_sub_lab</code> → New Source → <code>half_sub.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>Half Subtractor → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-half_sub"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_half_sub.v</code> → Benchmark → <strong>Half Subtractor TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify Borrow Logic</div><div class="exec-step-desc">Borrow goes HIGH <strong>only</strong> when A=0, B=1 (borrowing from higher bit). Diff follows XOR logic.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform output</div>
+      <div class="expected-line">t=10ns : a=<em>0</em> b=<em>1</em> → diff=<span style="color:#4ade80;">1</span> borrow=<span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=20ns : a=<em>1</em> b=<em>0</em> → diff=<span style="color:#4ade80;">1</span> borrow=<span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ FULL SUBTRACTOR ═══ -->
+  <div class="exec-card" id="exec-full_sub">
+    <div class="exec-card-title">Full Subtractor <span class="exec-badge">3-INPUT</span></div>
+    <div class="tt-wrap"><div class="tt-label">// truth table (key rows)</div>
+      <table class="tt"><tr><th>A</th><th>B</th><th>BIN</th><th>DIFF</th><th>BOUT</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="lo">0</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td><td class="out hi">1</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="lo">0</td><td class="out lo">0</td><td class="out lo">0</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="hi">1</td><td class="out hi">1</td><td class="out hi">1</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>full_sub_lab</code> → New Source → <code>full_sub.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code & Synthesize</div><div class="exec-step-desc">Repo → <strong>Full Subtractor → COPY</strong> → Paste → Save → Synthesize XST</div><pre class="exec-live-code" id="elc-full_sub"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Add TB & Simulate</div><div class="exec-step-desc">Test Fixture → <code>tb_full_sub.v</code> → Benchmark → <strong>Full Subtractor TB → COPY</strong> → Simulate. All 8 combinations tested (000–111).</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify</div><div class="exec-step-desc">Check <code>bout</code> (borrow out) HIGH when result is negative. <code>diff</code> follows XOR of all 3 inputs.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// key expected outputs</div>
+      <div class="expected-line">{a,b,bin}=<em>010</em> → diff=<span style="color:#4ade80;">1</span> bout=<span style="color:#4ade80;font-weight:700;">1</span></div>
+      <div class="expected-line">{a,b,bin}=<em>100</em> → diff=<span style="color:#4ade80;">1</span> bout=<span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ D FLIP-FLOP ═══ -->
+  <div class="exec-card" id="exec-d_ff">
+    <div class="exec-card-title">D Flip-Flop <span class="exec-badge seq">SEQUENTIAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// function table</div>
+      <table class="tt"><tr><th>CLK Edge</th><th>D</th><th>Q (next)</th></tr>
+        <tr><td>↑ Rising</td><td class="lo">0</td><td class="out lo">0</td></tr>
+        <tr><td>↑ Rising</td><td class="hi">1</td><td class="out hi">1</td></tr>
+        <tr><td>No Edge</td><td>X</td><td class="out">No Change</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>d_ff_lab</code> → New Source → <code>d_ff.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>D Flip-Flop → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-d_ff"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize</div><div class="exec-step-desc">Synthesize XST. ISE will infer a D flip-flop primitive automatically — check synthesis report for "FF inferred".</div><div class="exec-note"><strong>TIP:</strong> Look for "1 FF" in the synthesis Device Utilization Summary.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Add Testbench & Simulate</div><div class="exec-step-desc">Test Fixture → <code>tb_d_ff.v</code> → Benchmark → <strong>D Flip-Flop TB → COPY</strong>. TB has <code>always #5 clk=~clk</code> (10ns period). → Simulate Behavioral Model.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">5</div><div class="exec-step-body"><div class="exec-step-title">Add CLK to Waveform</div><div class="exec-step-desc">In iSim Objects panel → right-click <code>clk</code>, <code>d</code>, <code>q</code> → <strong>Add to Wave Window</strong> → Run All</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">6</div><div class="exec-step-body"><div class="exec-step-title">Verify Q Updates on Rising Edge</div><div class="exec-step-desc"><code>Q</code> must only change at the <strong>rising edge of CLK</strong> (↑). It holds its value between clock edges regardless of D.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform</div>
+      <div class="expected-line">clk period = <em>10ns</em> | d changes at t=12,22,32ns</div>
+      <div class="expected-line">t=10ns ↑clk : d=<em>0</em> → q captures <span>0</span></div>
+      <div class="expected-line">t=20ns ↑clk : d=<em>1</em> → q captures <span style="color:#4ade80;font-weight:700;">1 ✓</span></div>
+      <div class="expected-line">t=30ns ↑clk : d=<em>0</em> → q captures <span>0</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ JK FLIP-FLOP ═══ -->
+  <div class="exec-card" id="exec-jk_ff">
+    <div class="exec-card-title">JK Flip-Flop <span class="exec-badge seq">SEQUENTIAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// function table</div>
+      <table class="tt"><tr><th>J</th><th>K</th><th>Q (next)</th><th>Action</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out">Q</td><td>No Change</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out lo">0</td><td>Reset</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td><td>Set</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out">Q'</td><td>Toggle</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>jk_ff_lab</code> → New Source → <code>jk_ff.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>JK Flip-Flop → COPY</strong> → Paste → Save. Uses <code>case({j,k})</code> inside <code>always @(posedge clk)</code>.</div><pre class="exec-live-code" id="elc-jk_ff"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_jk_ff.v</code> → Benchmark → <strong>JK Flip-Flop TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify All 4 Modes</div><div class="exec-step-desc">Watch for all 4 states: <strong>Hold</strong> (J=0,K=0), <strong>Reset</strong> (J=0,K=1), <strong>Set</strong> (J=1,K=0), <strong>Toggle</strong> (J=1,K=1 — Q flips every clock).</div><div class="exec-note"><strong>KEY:</strong> Toggle mode (J=K=1) is unique to JK FF — Q flips on every rising CLK edge.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform</div>
+      <div class="expected-line">J=<em>0</em> K=<em>0</em> → q = <span>no change (hold)</span></div>
+      <div class="expected-line">J=<em>0</em> K=<em>1</em> → q = <span>0 (reset)</span></div>
+      <div class="expected-line">J=<em>1</em> K=<em>0</em> → q = <span style="color:#4ade80;font-weight:700;">1 (set) ✓</span></div>
+      <div class="expected-line">J=<em>1</em> K=<em>1</em> → q = <span style="color:#4ade80;font-weight:700;">toggles ✓</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ T FLIP-FLOP ═══ -->
+  <div class="exec-card" id="exec-t_ff">
+    <div class="exec-card-title">T Flip-Flop <span class="exec-badge seq">SEQUENTIAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// function table</div>
+      <table class="tt"><tr><th>T</th><th>Q (next)</th><th>Action</th></tr>
+        <tr><td class="lo">0</td><td class="out">Q</td><td>No Change (Hold)</td></tr>
+        <tr><td class="hi">1</td><td class="out">Q'</td><td>Toggle</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>t_ff_lab</code> → New Source → <code>t_ff.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>T Flip-Flop → COPY</strong> → Paste → Save</div><pre class="exec-live-code" id="elc-t_ff"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_t_ff.v</code> → Benchmark → <strong>T Flip-Flop TB → COPY</strong> → Simulate. T=1 for 20ns so Q toggles twice.</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify Toggle Behaviour</div><div class="exec-step-desc">When T=0 → Q is <strong>frozen</strong>. When T=1 → Q <strong>toggles</strong> on every rising CLK edge. This creates a divide-by-2 frequency.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform</div>
+      <div class="expected-line">t=0-12ns : T=<em>0</em> → q = <span>0 (hold)</span></div>
+      <div class="expected-line">t=20ns ↑clk : T=<em>1</em> → q = <span style="color:#4ade80;font-weight:700;">1 (toggle ✓)</span></div>
+      <div class="expected-line">t=30ns ↑clk : T=<em>1</em> → q = <span>0 (toggle back)</span></div>
+      <div class="expected-line">t=32ns+ : T=<em>0</em> → q = <span>0 (hold)</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ SR FLIP-FLOP ═══ -->
+  <div class="exec-card" id="exec-sr_ff">
+    <div class="exec-card-title">SR Flip-Flop <span class="exec-badge seq">SEQUENTIAL</span></div>
+    <div class="tt-wrap"><div class="tt-label">// function table</div>
+      <table class="tt"><tr><th>S</th><th>R</th><th>Q (next)</th><th>Action</th></tr>
+        <tr><td class="lo">0</td><td class="lo">0</td><td class="out">Q</td><td>No Change</td></tr>
+        <tr><td class="lo">0</td><td class="hi">1</td><td class="out lo">0</td><td>Reset</td></tr>
+        <tr><td class="hi">1</td><td class="lo">0</td><td class="out hi">1</td><td>Set</td></tr>
+        <tr><td class="hi">1</td><td class="hi">1</td><td class="out" style="color:var(--accent)">X</td><td>Invalid!</td></tr>
+      </table></div>
+    <div class="exec-steps">
+      <div class="exec-step"><div class="exec-step-num">1</div><div class="exec-step-body"><div class="exec-step-title">Create Project & Source</div><div class="exec-step-desc">New Project → <code>sr_ff_lab</code> → New Source → <code>sr_ff.v</code></div></div></div>
+      <div class="exec-step"><div class="exec-step-num">2</div><div class="exec-step-body"><div class="exec-step-title">Paste Code</div><div class="exec-step-desc">Repo → <strong>SR Flip-Flop → COPY</strong> → Paste → Save. The code handles Set and Reset only — S=R=1 is an invalid state and left unhandled.</div><pre class="exec-live-code" id="elc-sr_ff"></pre></div></div>
+      <div class="exec-step"><div class="exec-step-num">3</div><div class="exec-step-body"><div class="exec-step-title">Synthesize → Simulate</div><div class="exec-step-desc">Synthesize XST → Test Fixture → <code>tb_sr_ff.v</code> → Benchmark → <strong>SR Flip-Flop TB → COPY</strong> → Simulate</div></div></div>
+      <div class="exec-step"><div class="exec-step-num">4</div><div class="exec-step-body"><div class="exec-step-title">Verify Set / Reset</div><div class="exec-step-desc">Watch: S=1,R=0 → Q goes HIGH (Set). S=0,R=1 → Q goes LOW (Reset). S=0,R=0 → Q holds last value.</div><div class="exec-warn"><strong>WARNING:</strong> Never apply S=1 AND R=1 simultaneously — this is an invalid/forbidden state in SR FF.</div></div></div>
+    </div>
+    <div class="expected-box"><div class="expected-label">// expected waveform</div>
+      <div class="expected-line">S=<em>1</em> R=<em>0</em> @ ↑clk → q = <span style="color:#4ade80;font-weight:700;">1 (SET ✓)</span></div>
+      <div class="expected-line">S=<em>0</em> R=<em>0</em> @ ↑clk → q = <span>1 (hold)</span></div>
+      <div class="expected-line">S=<em>0</em> R=<em>1</em> @ ↑clk → q = <span>0 (RESET)</span></div>
+      <div class="expected-line">S=<em>0</em> R=<em>0</em> @ ↑clk → q = <span>0 (hold)</span></div>
+    </div>
+  </div>
+
+</div><!-- end #execPage -->
+
+<!-- ═══════════ BOTTOM NAV ═══════════ -->
+<nav class="bottom-nav">
+  <div class="bottom-nav-inner">
+    <button class="nav-btn active" id="navRepo" onclick="switchPage('repo')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+      <span>Repo</span>
+    </button>
+    <button class="nav-btn" id="navExec" onclick="switchPage('exec')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      <span>Execution</span>
+    </button>
+    <button class="nav-btn" id="navGuide" onclick="switchPage('guide')">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <span>ISE Guide</span>
+    </button>
+  </div>
+</nav>
+
+<div id="editModal">
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal-panel">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">EDIT <span>MODULE</span></div>
+      <button class="modal-close" id="closeModal">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">// verilog_hdl_source</label>
+      <textarea id="modalTextarea" rows="12"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-save" id="saveBtn">Save Changes</button>
+      <button class="btn-cancel" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast">// copied to clipboard</div>
+
+<script type="application/json" id="expData">
+[
+  {"id":"and_gate","title":"AND Gate","category":"Logic Gate","code":"module and_gate(a, b, y);\n  input a, b;\n  output y;\n  assign y = a & b;\nendmodule"},
+  {"id":"or_gate","title":"OR Gate","category":"Logic Gate","code":"module or_gate(a, b, y);\n  input a, b;\n  output y;\n  assign y = a | b;\nendmodule"},
+  {"id":"not_gate","title":"NOT Gate","category":"Logic Gate","code":"module not_gate(a, y);\n  input a;\n  output y;\n  assign y = ~a;\nendmodule"},
+  {"id":"xor_gate","title":"XOR Gate","category":"Logic Gate","code":"module xor_gate(a, b, y);\n  input a, b;\n  output y;\n  assign y = a ^ b;\nendmodule"},
+  {"id":"nand_gate","title":"NAND Gate","category":"Logic Gate","code":"module nand_gate(a, b, y);\n  input a, b;\n  output y;\n  assign y = ~(a & b);\nendmodule"},
+  {"id":"nor_gate","title":"NOR Gate","category":"Logic Gate","code":"module nor_gate(a, b, y);\n  input a, b;\n  output y;\n  assign y = ~(a | b);\nendmodule"},
+  {"id":"half_adder","title":"Half Adder","category":"Arithmetic","code":"module half_adder(a, b, sum, carry);\n  input a, b;\n  output sum, carry;\n  assign sum = a ^ b;\n  assign carry = a & b;\nendmodule"},
+  {"id":"full_adder","title":"Full Adder","category":"Arithmetic","code":"module full_adder(a, b, cin, sum, cout);\n  input a, b, cin;\n  output sum, cout;\n  assign sum = a ^ b ^ cin;\n  assign cout = (a & b) | (b & cin) | (cin & a);\nendmodule"},
+  {"id":"half_sub","title":"Half Subtractor","category":"Arithmetic","code":"module half_sub(a, b, diff, borrow);\n  input a, b;\n  output diff, borrow;\n  assign diff = a ^ b;\n  assign borrow = ~a & b;\nendmodule"},
+  {"id":"full_sub","title":"Full Subtractor","category":"Arithmetic","code":"module full_sub(a, b, bin, diff, bout);\n  input a, b, bin;\n  output diff, bout;\n  assign diff = a ^ b ^ bin;\n  assign bout = (~a & b) | (~(a ^ b) & bin);\nendmodule"},
+  {"id":"mux_4_1","title":"4:1 MUX","category":"Data Path","code":"module mux41(i, s, y);\n  input [3:0] i;\n  input [1:0] s;\n  output reg y;\n  always @(*) begin\n    case(s)\n      2'b00: y = i[0];\n      2'b01: y = i[1];\n      2'b10: y = i[2];\n      2'b11: y = i[3];\n    endcase\n  end\nendmodule"},
+  {"id":"demux_1_4","title":"1:4 DEMUX","category":"Data Path","code":"module demux14(i, s, y);\n  input i;\n  input [1:0] s;\n  output reg [3:0] y;\n  always @(*) begin\n    y = 4'b0000;\n    y[s] = i;\n  end\nendmodule"},
+  {"id":"encoder_4_2","title":"4:2 Encoder","category":"Data Path","code":"module enc42(i, y);\n  input [3:0] i;\n  output reg [1:0] y;\n  always @(*) begin\n    if(i[3]) y=2'b11;\n    else if(i[2]) y=2'b10;\n    else if(i[1]) y=2'b01;\n    else y=2'b00;\n  end\nendmodule"},
+  {"id":"decoder_2_4","title":"2:4 Decoder","category":"Data Path","code":"module dec24(i, y);\n  input [1:0] i;\n  output reg [3:0] y;\n  always @(*) begin\n    case(i)\n      2'b00: y=4'b0001;\n      2'b01: y=4'b0010;\n      2'b10: y=4'b0100;\n      2'b11: y=4'b1000;\n    endcase\n  end\nendmodule"},
+  {"id":"d_ff","title":"D Flip-Flop","category":"Sequential","code":"module d_ff(d, clk, q);\n  input d, clk;\n  output reg q;\n  always @(posedge clk) q <= d;\nendmodule"},
+  {"id":"jk_ff","title":"JK Flip-Flop","category":"Sequential","code":"module jk_ff(j, k, clk, q);\n  input j, k, clk;\n  output reg q;\n  always @(posedge clk) begin\n    case({j,k})\n      2'b01: q <= 0;\n      2'b10: q <= 1;\n      2'b11: q <= ~q;\n    endcase\n  end\nendmodule"},
+  {"id":"t_ff","title":"T Flip-Flop","category":"Sequential","code":"module t_ff(t, clk, q);\n  input t, clk;\n  output reg q;\n  always @(posedge clk)\n    if(t) q <= ~q;\nendmodule"},
+  {"id":"sr_ff","title":"SR Flip-Flop","category":"Sequential","code":"module sr_ff(s, r, clk, q);\n  input s, r, clk;\n  output reg q;\n  always @(posedge clk) begin\n    if(s && !r) q <= 1;\n    else if(!s && r) q <= 0;\n  end\nendmodule"},
+  {"id":"alu_4bit","title":"ALU 4-BIT","category":"Arithmetic","code":"module alu4(a, b, op, y);\n  input [3:0] a, b;\n  input [1:0] op;\n  output reg [3:0] y;\n  always @(*) begin\n    case(op)\n      2'b00: y = a + b;\n      2'b01: y = a - b;\n      2'b10: y = a & b;\n      2'b11: y = a | b;\n    endcase\n  end\nendmodule"}
+]
+</script>
+
+<script type="application/json" id="benchData">
+[
+  {"id":"tb_and_gate","title":"AND Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_and_gate;\n  reg a, b;\n  wire y;\n  and_gate uut(.a(a),.b(b),.y(y));\n  initial begin\n    $dumpfile(\"and_gate.vcd\");\n    $dumpvars(0, tb_and_gate);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"AND TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_or_gate","title":"OR Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_or_gate;\n  reg a, b;\n  wire y;\n  or_gate uut(.a(a),.b(b),.y(y));\n  initial begin\n    $dumpfile(\"or_gate.vcd\");\n    $dumpvars(0, tb_or_gate);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"OR TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_not_gate","title":"NOT Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_not_gate;\n  reg a;\n  wire y;\n  not_gate uut(.a(a),.y(y));\n  initial begin\n    $dumpfile(\"not_gate.vcd\");\n    $dumpvars(0, tb_not_gate);\n    a=0; #10;\n    a=1; #10;\n    $display(\"NOT TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_xor_gate","title":"XOR Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_xor_gate;\n  reg a, b;\n  wire y;\n  xor_gate uut(.a(a),.b(b),.y(y));\n  initial begin\n    $dumpfile(\"xor_gate.vcd\");\n    $dumpvars(0, tb_xor_gate);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"XOR TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_nand_gate","title":"NAND Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_nand_gate;\n  reg a, b;\n  wire y;\n  nand_gate uut(.a(a),.b(b),.y(y));\n  initial begin\n    $dumpfile(\"nand_gate.vcd\");\n    $dumpvars(0, tb_nand_gate);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"NAND TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_nor_gate","title":"NOR Gate TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_nor_gate;\n  reg a, b;\n  wire y;\n  nor_gate uut(.a(a),.b(b),.y(y));\n  initial begin\n    $dumpfile(\"nor_gate.vcd\");\n    $dumpvars(0, tb_nor_gate);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"NOR TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_half_adder","title":"Half Adder TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_half_adder;\n  reg a, b;\n  wire sum, carry;\n  half_adder uut(.a(a),.b(b),.sum(sum),.carry(carry));\n  initial begin\n    $dumpfile(\"half_adder.vcd\");\n    $dumpvars(0, tb_half_adder);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"Half Adder TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_full_adder","title":"Full Adder TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_full_adder;\n  reg a, b, cin;\n  wire sum, cout;\n  full_adder uut(.a(a),.b(b),.cin(cin),.sum(sum),.cout(cout));\n  initial begin\n    $dumpfile(\"full_adder.vcd\");\n    $dumpvars(0, tb_full_adder);\n    {a,b,cin}=3'b000; #10;\n    {a,b,cin}=3'b001; #10;\n    {a,b,cin}=3'b010; #10;\n    {a,b,cin}=3'b011; #10;\n    {a,b,cin}=3'b100; #10;\n    {a,b,cin}=3'b101; #10;\n    {a,b,cin}=3'b110; #10;\n    {a,b,cin}=3'b111; #10;\n    $display(\"Full Adder TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_half_sub","title":"Half Subtractor TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_half_sub;\n  reg a, b;\n  wire diff, borrow;\n  half_sub uut(.a(a),.b(b),.diff(diff),.borrow(borrow));\n  initial begin\n    $dumpfile(\"half_sub.vcd\");\n    $dumpvars(0, tb_half_sub);\n    a=0; b=0; #10;\n    a=0; b=1; #10;\n    a=1; b=0; #10;\n    a=1; b=1; #10;\n    $display(\"Half Sub TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_full_sub","title":"Full Subtractor TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_full_sub;\n  reg a, b, bin;\n  wire diff, bout;\n  full_sub uut(.a(a),.b(b),.bin(bin),.diff(diff),.bout(bout));\n  initial begin\n    $dumpfile(\"full_sub.vcd\");\n    $dumpvars(0, tb_full_sub);\n    {a,b,bin}=3'b000; #10;\n    {a,b,bin}=3'b001; #10;\n    {a,b,bin}=3'b010; #10;\n    {a,b,bin}=3'b011; #10;\n    {a,b,bin}=3'b100; #10;\n    {a,b,bin}=3'b101; #10;\n    {a,b,bin}=3'b110; #10;\n    {a,b,bin}=3'b111; #10;\n    $display(\"Full Sub TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_mux_4_1","title":"4:1 MUX TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_mux41;\n  reg [3:0] i;\n  reg [1:0] s;\n  wire y;\n  mux41 uut(.i(i),.s(s),.y(y));\n  initial begin\n    $dumpfile(\"mux41.vcd\");\n    $dumpvars(0, tb_mux41);\n    i=4'b1010; s=2'b00; #10;\n    i=4'b1010; s=2'b01; #10;\n    i=4'b1010; s=2'b10; #10;\n    i=4'b1010; s=2'b11; #10;\n    $display(\"MUX 4:1 TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_demux_1_4","title":"1:4 DEMUX TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_demux14;\n  reg i;\n  reg [1:0] s;\n  wire [3:0] y;\n  demux14 uut(.i(i),.s(s),.y(y));\n  initial begin\n    $dumpfile(\"demux14.vcd\");\n    $dumpvars(0, tb_demux14);\n    i=1; s=2'b00; #10;\n    i=1; s=2'b01; #10;\n    i=1; s=2'b10; #10;\n    i=1; s=2'b11; #10;\n    $display(\"DEMUX 1:4 TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_encoder_4_2","title":"4:2 Encoder TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_enc42;\n  reg [3:0] i;\n  wire [1:0] y;\n  enc42 uut(.i(i),.y(y));\n  initial begin\n    $dumpfile(\"enc42.vcd\");\n    $dumpvars(0, tb_enc42);\n    i=4'b0001; #10;\n    i=4'b0010; #10;\n    i=4'b0100; #10;\n    i=4'b1000; #10;\n    $display(\"Encoder 4:2 TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_decoder_2_4","title":"2:4 Decoder TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_dec24;\n  reg [1:0] i;\n  wire [3:0] y;\n  dec24 uut(.i(i),.y(y));\n  initial begin\n    $dumpfile(\"dec24.vcd\");\n    $dumpvars(0, tb_dec24);\n    i=2'b00; #10;\n    i=2'b01; #10;\n    i=2'b10; #10;\n    i=2'b11; #10;\n    $display(\"Decoder 2:4 TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_d_ff","title":"D Flip-Flop TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_d_ff;\n  reg d, clk;\n  wire q;\n  d_ff uut(.d(d),.clk(clk),.q(q));\n  initial clk = 0;\n  always #5 clk = ~clk;\n  initial begin\n    $dumpfile(\"d_ff.vcd\");\n    $dumpvars(0, tb_d_ff);\n    d=0; #12;\n    d=1; #10;\n    d=0; #10;\n    d=1; #10;\n    $display(\"D FF TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_jk_ff","title":"JK Flip-Flop TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_jk_ff;\n  reg j, k, clk;\n  wire q;\n  jk_ff uut(.j(j),.k(k),.clk(clk),.q(q));\n  initial clk = 0;\n  always #5 clk = ~clk;\n  initial begin\n    $dumpfile(\"jk_ff.vcd\");\n    $dumpvars(0, tb_jk_ff);\n    j=0; k=0; #12;\n    j=0; k=1; #10;\n    j=1; k=0; #10;\n    j=1; k=1; #10;\n    j=0; k=0; #10;\n    $display(\"JK FF TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_t_ff","title":"T Flip-Flop TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_t_ff;\n  reg t, clk;\n  wire q;\n  t_ff uut(.t(t),.clk(clk),.q(q));\n  initial clk = 0;\n  always #5 clk = ~clk;\n  initial begin\n    $dumpfile(\"t_ff.vcd\");\n    $dumpvars(0, tb_t_ff);\n    t=0; #12;\n    t=1; #20;\n    t=0; #10;\n    t=1; #20;\n    $display(\"T FF TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_sr_ff","title":"SR Flip-Flop TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_sr_ff;\n  reg s, r, clk;\n  wire q;\n  sr_ff uut(.s(s),.r(r),.clk(clk),.q(q));\n  initial clk = 0;\n  always #5 clk = ~clk;\n  initial begin\n    $dumpfile(\"sr_ff.vcd\");\n    $dumpvars(0, tb_sr_ff);\n    s=0; r=0; #12;\n    s=1; r=0; #10;\n    s=0; r=0; #10;\n    s=0; r=1; #10;\n    s=0; r=0; #10;\n    $display(\"SR FF TB done\");\n    $finish;\n  end\nendmodule"},
+  {"id":"tb_alu_4bit","title":"ALU 4-BIT TB","category":"Benchmark","code":"`timescale 1ns/1ps\nmodule tb_alu4;\n  reg [3:0] a, b;\n  reg [1:0] op;\n  wire [3:0] y;\n  alu4 uut(.a(a),.b(b),.op(op),.y(y));\n  initial begin\n    $dumpfile(\"alu4.vcd\");\n    $dumpvars(0, tb_alu4);\n    a=4'd5; b=4'd3; op=2'b00; #10;\n    a=4'd9; b=4'd4; op=2'b01; #10;\n    a=4'hF; b=4'hA; op=2'b10; #10;\n    a=4'h5; b=4'hA; op=2'b11; #10;\n    $display(\"ALU 4-bit TB done\");\n    $finish;\n  end\nendmodule"}
+]
+</script>
+
+<script>
+// ── Supabase config ──────────────────────────────────────────
+const SUPA_URL = 'https://krywcjebdknvtskkcbgc.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtyeXdjamViZGtudnRza2tjYmdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNzI3MTIsImV4cCI6MjA4ODY0ODcxMn0.WlBl8Yg4rviU4JBCR_7sCmr02gvVGGOq7Ao1nYdgXJ0';
+const sb    = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+const TABLE = 'lab_modules';
+
+// ── Seed data from JSON script tags ─────────────────────────
+const SEED_EXP   = JSON.parse(document.getElementById('expData').textContent);
+const SEED_BENCH = JSON.parse(document.getElementById('benchData').textContent);
+const SEED_ALL   = [...SEED_EXP, ...SEED_BENCH];
+
+// ── State ────────────────────────────────────────────────────
+let allItems       = [];
+let currentEditId  = null;
+let activeCategory = 'All';
+let toastTimer;
+
+// ── DOM refs ─────────────────────────────────────────────────
+const grid          = document.getElementById('experimentsGrid');
+const searchInput   = document.getElementById('searchInput');
+const emptyState    = document.getElementById('emptyState');
+const modal         = document.getElementById('editModal');
+const modalTA       = document.getElementById('modalTextarea');
+const modalTitle    = document.getElementById('modalTitle');
+const expCountEl    = document.getElementById('expCount');
+const searchCountEl = document.getElementById('searchCount');
+const catStrip      = document.getElementById('catStrip');
+const syncDot       = document.getElementById('syncDot');
+const syncLabel     = document.getElementById('syncLabel');
+const loadingEl     = document.getElementById('loadingOverlay');
+
+// ── Sync UI helpers ──────────────────────────────────────────
+function setSyncing() {
+  syncDot.className = 'sync-dot syncing';
+  syncLabel.textContent = 'syncing';
+}
+function setSynced() {
+  syncDot.className = 'sync-dot synced';
+  syncLabel.textContent = 'synced';
+}
+function setSyncError() {
+  syncDot.className = 'sync-dot error';
+  syncLabel.textContent = 'offline';
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Supabase helpers ─────────────────────────────────────────
+
+// Fetch all rows
+async function fetchFromSupabase() {
+  const { data, error } = await sb
+    .from(TABLE)
+    .select('id, title, category, code')
+    .order('created_at', { ascending: true });
+  if (error) throw new Error(error.message || 'fetch failed');
+  return data || [];
+}
+
+// Upsert ONE item — saves id, title, category, code
+async function upsertToSupabase(item) {
+  const payload = {
+    id:       String(item.id).trim(),
+    title:    String(item.title).trim(),
+    category: String(item.category).trim(),
+    code:     String(item.code)          // preserve whitespace exactly
+  };
+  const { data, error } = await sb
+    .from(TABLE)
+    .upsert(payload, { onConflict: 'id' })
+    .select('id, code')
+    .single();
+  if (error) throw new Error(error.message || 'upsert failed');
+  // Verify what came back matches what we sent
+  if (!data || data.code !== payload.code) {
+    throw new Error('DB verification failed — saved code does not match');
+  }
+  return data;
+}
+
+// Upsert MANY items in one batch (used for seeding)
+async function upsertBatch(items) {
+  const payload = items.map(i => ({
+    id:       String(i.id).trim(),
+    title:    String(i.title).trim(),
+    category: String(i.category).trim(),
+    code:     String(i.code)
+  }));
+  const { error } = await sb
+    .from(TABLE)
+    .upsert(payload, { onConflict: 'id' });
+  if (error) throw new Error(error.message || 'batch upsert failed');
+}
+
+// Seed only rows missing from DB (never overwrites existing)
+async function seedMissingRows(items) {
+  const { data: existing, error: fetchErr } = await sb
+    .from(TABLE).select('id');
+  if (fetchErr) throw new Error(fetchErr.message || 'seed-check failed');
+
+  const existingIds = new Set((existing || []).map(r => r.id));
+  const missing = items.filter(i => !existingIds.has(i.id));
+  if (missing.length === 0) return 0;
+
+  const { error: insertErr } = await sb
+    .from(TABLE)
+    .insert(missing.map(i => ({
+      id: i.id, title: i.title, category: i.category, code: i.code
+    })));
+  if (insertErr) throw new Error(insertErr.message || 'seed-insert failed');
+  return missing.length;
+}
+
+// ── Offline save queue ────────────────────────────────────────
+// Items edited while offline are queued and flushed on reconnect
+let pendingQueue = [];
+
+function enqueueSave(item) {
+  // Remove any earlier queued version of same id
+  pendingQueue = pendingQueue.filter(x => x.id !== item.id);
+  pendingQueue.push({ ...item });
+  try {
+    localStorage.setItem('lab_pending_v1', JSON.stringify(pendingQueue));
+  } catch(_) {}
+}
+
+function loadPendingQueue() {
+  try {
+    const raw = localStorage.getItem('lab_pending_v1');
+    pendingQueue = raw ? JSON.parse(raw) : [];
+  } catch(_) { pendingQueue = []; }
+}
+
+async function flushPendingQueue() {
+  if (pendingQueue.length === 0) return;
+  const toFlush = [...pendingQueue];
+  for (const item of toFlush) {
+    try {
+      await upsertToSupabase(item);
+      pendingQueue = pendingQueue.filter(x => x.id !== item.id);
+      try { localStorage.setItem('lab_pending_v1', JSON.stringify(pendingQueue)); } catch(_) {}
+    } catch(e) {
+      console.warn('[lesbian.xxx] Queue flush failed for', item.id, e.message);
+    }
+  }
+}
+
+// ── Init ─────────────────────────────────────────────────────
+async function init() {
+  setSyncing();
+  loadPendingQueue();
+
+  const isSandboxed = (() => {
+    try { return window.self !== window.top; } catch(_) { return true; }
+  })();
+
+  if (!isSandboxed) {
+    try {
+      // 1. Seed any missing default rows
+      const seeded = await seedMissingRows(SEED_ALL);
+      if (seeded > 0) console.log('[lesbian.xxx] Seeded', seeded, 'new rows');
+
+      // 2. Flush any edits made while offline
+      await flushPendingQueue();
+
+      // 3. Fetch latest from DB (includes any edits just flushed)
+      const rows = await fetchFromSupabase();
+      allItems = rows.length > 0 ? rows : [...SEED_ALL];
+
+      // 4. Update local cache
+      try { localStorage.setItem('lab_cache_v1', JSON.stringify(allItems)); } catch(_) {}
+
+      setSynced();
+      console.log('[lesbian.xxx] Loaded', allItems.length, 'modules from Supabase');
+    } catch (err) {
+      const msg = err && err.message ? err.message : 'network error';
+      console.warn('[lesbian.xxx] Supabase unavailable, using cache:', msg);
+      loadFromCache();
+      setSyncError();
+    }
+  } else {
+    loadFromCache();
+    setSyncError();
+  }
+
+  loadingEl.classList.add('hidden');
+  setTimeout(() => { loadingEl.style.display = 'none'; }, 450);
+  buildCats();
+  render();
+  syncExecCodes();
+}
+
+function loadFromCache() {
+  try {
+    const cached = localStorage.getItem('lab_cache_v1');
+    allItems = cached ? JSON.parse(cached) : [...SEED_ALL];
+  } catch(_) {
+    allItems = [...SEED_ALL];
+  }
+}
+
+// ── Sync live code blocks in Execution page ──────────────────
+// Maps exec card ID suffix → allItems ID
+const EXEC_ID_MAP = {
+  'and_gate'   : 'and_gate',
+  'or_gate'    : 'or_gate',
+  'not_gate'   : 'not_gate',
+  'xor_gate'   : 'xor_gate',
+  'nand_gate'  : 'nand_gate',
+  'nor_gate'   : 'nor_gate',
+  'half_adder' : 'half_adder',
+  'full_adder' : 'full_adder',
+  'half_sub'   : 'half_sub',
+  'full_sub'   : 'full_sub',
+  'd_ff'       : 'd_ff',
+  'jk_ff'      : 'jk_ff',
+  't_ff'       : 't_ff',
+  'sr_ff'      : 'sr_ff'
+};
+
+function syncExecCodes(updatedId) {
+  // If updatedId provided, only update that one; else update all
+  const keys = updatedId
+    ? Object.keys(EXEC_ID_MAP).filter(k => EXEC_ID_MAP[k] === updatedId)
+    : Object.keys(EXEC_ID_MAP);
+
+  keys.forEach(key => {
+    const el = document.getElementById('elc-' + key);
+    if (!el) return;
+    const item = allItems.find(x => x.id === EXEC_ID_MAP[key]);
+    if (!item) return;
+    const newCode = escapeHtml(item.code);
+    if (el.innerHTML !== newCode) {
+      el.innerHTML = newCode;
+      // Flash green to show it updated
+      el.classList.remove('updated');
+      void el.offsetWidth; // force reflow
+      el.classList.add('updated');
+    }
+  });
+}
+function buildCats() {
+  catStrip.innerHTML = '';
+  const cats = ['All', ...new Set(allItems.map(e => e.category))];
+  cats.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'cat-btn'
+      + (cat === activeCategory ? ' active' : '')
+      + (cat === 'Benchmark' ? ' bench-tab' : '');
+    b.textContent = cat;
+    b.onclick = () => { activeCategory = cat; buildCats(); render(searchInput.value); };
+    catStrip.appendChild(b);
+  });
+}
+
+// ── Filtering & grouping ─────────────────────────────────────
+function getGrouped(filter) {
+  const q = filter.toLowerCase();
+  const filtered = allItems.filter(ex => {
+    const matchText = ex.title.toLowerCase().includes(q) ||
+                      ex.category.toLowerCase().includes(q) ||
+                      ex.code.toLowerCase().includes(q);
+    const matchCat  = activeCategory === 'All' || ex.category === activeCategory;
+    return matchText && matchCat;
+  });
+  const grouped = {};
+  filtered.forEach(ex => (grouped[ex.category] = grouped[ex.category] || []).push(ex));
+  return { grouped, total: filtered.length };
+}
+
+// ── Card builder ─────────────────────────────────────────────
+function makeCard(ex, idx) {
+  const bench = ex.category === 'Benchmark';
+  const div   = document.createElement('div');
+  div.className = 'card' + (bench ? ' card-bench' : '');
+  div.innerHTML = `
+    <div class="card-header">
+      <div class="card-title-block">
+        <span class="card-index${bench?' bench-index':''}">${bench?'TB':'#'}${idx}</span>
+        <span class="card-title">${ex.title}</span>
+        ${bench ? '<span class="bench-badge">TESTBENCH</span>' : ''}
+      </div>
+      <div class="card-actions">
+        <button class="btn-icon btn-edit" data-id="${ex.id}" title="Edit">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="code-wrapper">
+        <pre>${escapeHtml(ex.code)}</pre>
+        <button class="btn-copy${bench?' btn-copy-bench':''}" data-id="${ex.id}">COPY</button>
+      </div>
+    </div>`;
+  return div;
+}
+
+// ── Render ───────────────────────────────────────────────────
+function render(filter = '') {
+  grid.innerHTML = '';
+  const { grouped, total } = getGrouped(filter);
+
+  expCountEl.textContent    = allItems.length + ' MODULES';
+  searchCountEl.textContent = (filter || activeCategory !== 'All') ? total + ' match' : '';
+
+  if (total === 0) { emptyState.classList.add('show'); return; }
+  emptyState.classList.remove('show');
+
+  const order = Object.keys(grouped).sort((a,b) => (a==='Benchmark')-(b==='Benchmark'));
+  let n = 1;
+  order.forEach(cat => {
+    const items = grouped[cat];
+    const bench = cat === 'Benchmark';
+    const hdr   = document.createElement('div');
+    hdr.className = 'section-header' + (bench ? ' bench-section-header' : '');
+    hdr.innerHTML = `
+      <span class="section-name${bench?' bench-section-name':''}">${bench?'⚡ ':''}${cat}</span>
+      <div class="section-line"></div>
+      <span class="section-count">${items.length}x</span>`;
+    grid.appendChild(hdr);
+    const wrap = document.createElement('div');
+    wrap.className = 'cards-grid';
+    items.forEach(ex => wrap.appendChild(makeCard(ex, String(n++).padStart(2,'0'))));
+    grid.appendChild(wrap);
+  });
+}
+
+// ── Copy helper ──────────────────────────────────────────────
+function doCopy(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+  return new Promise(resolve => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:-999px;left:-999px;opacity:0;';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    resolve();
+  });
+}
+
+// ── Event delegation ─────────────────────────────────────────
+grid.addEventListener('click', e => {
+  const copyBtn = e.target.closest('.btn-copy');
+  if (copyBtn) {
+    e.stopPropagation();
+    const item = allItems.find(x => x.id === copyBtn.dataset.id);
+    if (!item) return;
+    doCopy(item.code).then(() => {
+      copyBtn.textContent = 'COPIED!';
+      copyBtn.classList.add('copied');
+      setTimeout(() => { copyBtn.textContent = 'COPY'; copyBtn.classList.remove('copied'); }, 2000);
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+    }).catch(() => {
+      copyBtn.textContent = 'FAILED';
+      setTimeout(() => { copyBtn.textContent = 'COPY'; }, 2000);
+    });
+    return;
+  }
+  const editBtn = e.target.closest('.btn-edit');
+  if (editBtn) openEdit(editBtn.dataset.id);
+});
+
+// ── Modal ─────────────────────────────────────────────────────
+function openEdit(id) {
+  currentEditId = id;
+  const item  = allItems.find(e => e.id === id);
+  const bench = item.category === 'Benchmark';
+  modalTitle.innerHTML = 'EDIT <span>' + item.title.toUpperCase() + '</span>'
+    + (bench ? ' <small style="font-size:10px;color:#ffd200;letter-spacing:0.1em">TESTBENCH</small>' : '');
+  modalTA.value = item.code;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('closeModal').onclick   = closeModal;
+document.getElementById('cancelBtn').onclick    = closeModal;
+document.getElementById('modalOverlay').onclick = closeModal;
+
+document.getElementById('saveBtn').onclick = async () => {
+  const idx = allItems.findIndex(e => e.id === currentEditId);
+  if (idx === -1) return;
+
+  const newCode = modalTA.value;
+  if (!newCode.trim()) return;
+
+  // 1. Update local state immediately
+  allItems[idx] = { ...allItems[idx], code: newCode };
+  const savedItem = { ...allItems[idx] };
+
+  // 2. Close modal & re-render instantly
+  closeModal();
+  render(searchInput.value);
+
+  // 3. Save to localStorage right away
+  try { localStorage.setItem('lab_cache_v1', JSON.stringify(allItems)); } catch(_) {}
+
+  // 4. Update Execution page live code block instantly
+  syncExecCodes(savedItem.id);
+
+  // 5. Skip network if sandboxed
+  const isSandboxed = (() => {
+    try { return window.self !== window.top; } catch(_) { return true; }
+  })();
+  if (isSandboxed) {
+    enqueueSave(savedItem);
+    showToast('// saved locally — will sync on Vercel');
+    setSyncError();
+    return;
+  }
+
+  // 6. Try Supabase with up to 3 retries
+  setSyncing();
+  let lastErr = null;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      await upsertToSupabase(savedItem);
+
+      // Success — update cache with latest allItems
+      try { localStorage.setItem('lab_cache_v1', JSON.stringify(allItems)); } catch(_) {}
+
+      // Remove from pending queue if it was there
+      pendingQueue = pendingQueue.filter(x => x.id !== savedItem.id);
+      try { localStorage.setItem('lab_pending_v1', JSON.stringify(pendingQueue)); } catch(_) {}
+
+      setSynced();
+      showToast('// saved to cloud ✓');
+      console.log('[lesbian.xxx] Saved', savedItem.id, 'on attempt', attempt);
+      return; // done
+
+    } catch (err) {
+      lastErr = err;
+      console.warn('[lesbian.xxx] Save attempt', attempt, 'failed:', err.message);
+      if (attempt < 3) {
+        await new Promise(r => setTimeout(r, 800 * attempt)); // wait 0.8s, 1.6s
+      }
+    }
+  }
+
+  // All 3 attempts failed — queue for later
+  enqueueSave(savedItem);
+  setSyncError();
+  showToast('// saved locally — will retry on reload');
+  console.warn('[lesbian.xxx] All save attempts failed. Queued.', lastErr?.message);
+};
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+searchInput.addEventListener('input', e => render(e.target.value));
+
+// ── Page switching ────────────────────────────────────────────
+function switchPage(page) {
+  const repoPage  = document.getElementById('repoPage');
+  const guidePage = document.getElementById('guidePage');
+  const execPage  = document.getElementById('execPage');
+  const navRepo   = document.getElementById('navRepo');
+  const navGuide  = document.getElementById('navGuide');
+  const navExec   = document.getElementById('navExec');
+  const header    = document.querySelector('header');
+
+  // hide all
+  repoPage.classList.add('hidden');
+  guidePage.classList.remove('active');
+  execPage.classList.remove('active');
+  navRepo.classList.remove('active');
+  navGuide.classList.remove('active');
+  navExec.classList.remove('active');
+  header.style.display = 'none';
+
+  if (page === 'repo') {
+    repoPage.classList.remove('hidden');
+    navRepo.classList.add('active');
+    header.style.display = '';
+  } else if (page === 'exec') {
+    execPage.classList.add('active');
+    navExec.classList.add('active');
+  } else if (page === 'guide') {
+    guidePage.classList.add('active');
+    navGuide.classList.add('active');
+  }
+  window.scrollTo(0, 0);
+}
+
+// ── Execution guide tab switcher ──────────────────────────────
+function showExec(id) {
+  // hide all exec cards
+  document.querySelectorAll('.exec-card').forEach(c => c.classList.remove('active'));
+  // deactivate all tab buttons across all mod-tabs rows
+  document.querySelectorAll('.mod-tab').forEach(t => t.classList.remove('active'));
+
+  // show selected card
+  const card = document.getElementById('exec-' + id);
+  if (card) card.classList.add('active');
+
+  // activate the clicked button
+  event.currentTarget.classList.add('active');
+}
+
+// ── Boot ─────────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
